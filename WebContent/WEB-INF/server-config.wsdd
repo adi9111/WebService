@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -33,11 +33,11 @@
    <ns2:parameter qname="ns1:name" type="xsd:string"/>
   </ns2:operation>
   <ns1:parameter name="allowedMethods" value="setName"/>
-  <ns1:parameter name="wsdlPortType" value="Hello"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://web"/>
-  <ns1:parameter name="wsdlServicePort" value="Hello"/>
+  <ns1:parameter name="wsdlPortType" value="Hello"/>
   <ns1:parameter name="className" value="web.Hello"/>
+  <ns1:parameter name="wsdlServicePort" value="Hello"/>
+  <ns1:parameter name="schemaQualified" value="http://web"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://web"/>
   <ns1:parameter name="wsdlServiceElement" value="HelloService"/>
  </ns1:service>
@@ -45,16 +45,28 @@
   <ns1:parameter name="allowedMethods" value="getVersion"/>
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
+ <ns1:service name="CheckLog" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="checkForLogin" qname="ns2:CheckForLogin" returnQName="ns2:CheckForLoginReturn" returnType="xsd:boolean" soapAction="" xmlns:ns2="http://web" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="checkForPassword" qname="ns3:CheckForPassword" returnQName="ns3:CheckForPasswordReturn" returnType="xsd:boolean" soapAction="" xmlns:ns3="http://web" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:parameter name="allowedMethods" value="checkForPassword checkForLogin"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="CheckLog"/>
+  <ns1:parameter name="className" value="web.CheckLog"/>
+  <ns1:parameter name="wsdlServicePort" value="CheckLog"/>
+  <ns1:parameter name="schemaQualified" value="http://web"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://web"/>
+  <ns1:parameter name="wsdlServiceElement" value="CheckLogService"/>
+ </ns1:service>
  <ns1:service name="Login" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="getLogin" qname="ns2:getLogin" returnQName="ns2:getLoginReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://web" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns2:login" type="xsd:string"/>
+  <ns1:operation name="getLogin" qname="ns4:getLogin" returnQName="ns4:getLoginReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://web" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:login" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="getLogin"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="Login"/>
-  <ns1:parameter name="className" value="web.Login"/>
-  <ns1:parameter name="wsdlServicePort" value="Login"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://web"/>
+  <ns1:parameter name="wsdlServicePort" value="Login"/>
+  <ns1:parameter name="className" value="web.Login"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://web"/>
   <ns1:parameter name="wsdlServiceElement" value="LoginService"/>
  </ns1:service>
